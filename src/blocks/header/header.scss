@@ -1,0 +1,37 @@
+.header {
+	$self: &;
+	height: 100px;
+	display: flex;
+	align-items: center;
+	margin-bottom: -100px;
+	position: relative;
+	z-index: 1;
+	
+	@include media('<=md') {
+		margin-bottom: 0;
+		height: 90px;
+	}
+	
+	@include media('<=sm') {
+		height: 80px;
+	}
+	
+	@include media('<=xs') {
+		height: 70px;
+	}
+
+	&__inner {
+
+	}
+
+	&__logo {
+		display: block;
+		max-width: 220px;
+
+		img {
+			@include media('<=xs') {
+				max-width: 160px;
+			}
+		}
+	}
+}

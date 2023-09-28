@@ -11,7 +11,7 @@
 	padding-bottom: 30px;
 	
 	@include media('<=md') {
-		padding-top: 80px;
+		padding-top: 50px;
 		justify-content: flex-start;
 	}
 	
@@ -76,9 +76,11 @@
 		margin-bottom: 20px;
 		align-items: center;
 		flex-grow: 1;
-
+		
 		@include media('<=md') {
+			margin-bottom: 70px;
 			display: block;
+			flex-grow: 0;
 		}
 	}
 
@@ -141,6 +143,10 @@
 			margin-left: auto;
 			border: 3px solid rgba(255, 255, 255, 0.3);
 			border-radius: 8px;
+
+			@include media('<=md') {
+				margin: 0;
+			}
 		}
 	}
 
