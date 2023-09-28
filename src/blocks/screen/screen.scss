@@ -7,8 +7,17 @@
 	display: flex;
 	flex-flow: column nowrap;
 	justify-content: center;
-	padding-bottom: 30px;
 	padding-top: 30px;
+	padding-bottom: 30px;
+	
+	@include media('<=md') {
+		padding-top: 80px;
+		justify-content: flex-start;
+	}
+	
+	@include media('<=xs') {
+		overflow: visible;
+	}
 
 	&::before {
 		display: block;
@@ -52,15 +61,37 @@
 		color: #fff;
 		z-index: 2;
 		display: flex;
-		max-height: 700px;
+		flex-flow: column nowrap;
+		max-height: 830px;
 		flex-grow: 1;
-		align-items: center;
-		margin-bottom: 30px;
 		// @include outline();
+		
+		@include media('<=md') {
+			max-height: none;
+		}
+	}
+
+	&__content {
+		display: flex;
+		margin-bottom: 20px;
+		align-items: center;
+		flex-grow: 1;
+
+		@include media('<=md') {
+			display: block;
+		}
 	}
 
 	&__side {
-		padding-right: 100px;
+		padding-right: 50px;
+		max-width: 680px;
+		margin-right: auto;
+		
+		@include media('<=md') {
+			max-width: none;
+			padding: 0;
+			margin-bottom: 30px;
+		}
 	}
 
 	&__title {
@@ -68,19 +99,31 @@
 		font-size: 64px;
 		text-transform: uppercase;
 		margin-bottom: 50px;
+		@include range(64px, 36px, 1920px, 320px);
 		
+		@include media('<=md') {
+			margin-bottom: 30px;
+		}
+	
 		span {
 			display: block;
 			font-family: "MR", sans-serif;
 			text-transform: none;
 			font-size: 32px;
+			@include range(32px, 24px, 1920px, 320px);
 		}
 	}
 
 	&__text {
+		font-size: 16px;
+		@include range(16px, 14px, 1920px, 320px);
 
 		p {
 			margin-bottom: 20px;
+			
+			@include media('<=md') {
+				margin-bottom: 15px;
+			}
 		}
 	}
 
@@ -88,8 +131,13 @@
 		width: 54%;
 		flex-shrink: 0;
 
+		@include media('<=md') {
+			width: auto;
+		}
+
 		img {
 			display: block;
+			box-sizing: border-box;
 			margin-left: auto;
 			border: 3px solid rgba(255, 255, 255, 0.3);
 			border-radius: 8px;
@@ -97,6 +145,7 @@
 	}
 
 	&__down {
+		margin-top: auto;
 		position: relative;
 		align-self: center;
 		z-index: 2;
