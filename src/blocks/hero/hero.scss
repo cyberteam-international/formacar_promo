@@ -1,0 +1,40 @@
+.hero {
+	$self: &;
+	box-sizing: border-box;
+	padding-bottom: 30px;
+	padding-top: 30px;
+	min-height: 100vh;
+	position: relative;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	color: #fff;
+	
+	&__inner {
+		display: flex;
+		flex-flow: column nowrap;
+		align-items: center;
+		justify-content: space-between;
+		flex-grow: 1;
+		max-height: 700px;
+	}
+
+	&__emblem {
+		margin-bottom: 30px;
+	}
+
+	&__text {
+		max-width: 1120px;
+		text-align: center;
+		margin-bottom: 50px;
+		font-size: 24px;
+
+		p {
+			margin-bottom: 30px;
+		}
+	}
+
+	&__down {
+
+	}
+}

@@ -1,0 +1,104 @@
+.screen {
+	$self: &;
+	box-sizing: border-box;
+	position: relative;
+	min-height: 100vh;
+	overflow: hidden;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	padding-bottom: 30px;
+	padding-top: 30px;
+
+	&::before {
+		display: block;
+		content: '';
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-color: transparent;
+		filter: blur(50px);
+		position: absolute;
+		opacity: 0.5;
+		height: 100%;
+		width: 100%;
+		z-index: 1;
+		left: 0;
+		top: 0;
+	}
+
+	&_one::before {
+		background-image: url('#{$images-path}screen-bg-1.png');
+	}
+	
+	&_two::before {
+		background-image: url('#{$images-path}screen-bg-2.png');
+	}
+	
+	&_three::before {
+		background-image: url('#{$images-path}screen-bg-3.png');
+	}
+	
+	&_four::before {
+		background-image: url('#{$images-path}screen-bg-4.png');
+	}
+	
+	&_five::before {
+		background-image: url('#{$images-path}screen-bg-5.png');
+	}
+
+	&__inner {
+		position: relative;
+		color: #fff;
+		z-index: 2;
+		display: flex;
+		max-height: 700px;
+		flex-grow: 1;
+		align-items: center;
+		margin-bottom: 30px;
+		// @include outline();
+	}
+
+	&__side {
+		padding-right: 100px;
+	}
+
+	&__title {
+		font-family: "MB", sans-serif;
+		font-size: 64px;
+		text-transform: uppercase;
+		margin-bottom: 50px;
+		
+		span {
+			display: block;
+			font-family: "MR", sans-serif;
+			text-transform: none;
+			font-size: 32px;
+		}
+	}
+
+	&__text {
+
+		p {
+			margin-bottom: 20px;
+		}
+	}
+
+	&__image {
+		width: 54%;
+		flex-shrink: 0;
+
+		img {
+			display: block;
+			margin-left: auto;
+			border: 3px solid rgba(255, 255, 255, 0.3);
+			border-radius: 8px;
+		}
+	}
+
+	&__down {
+		position: relative;
+		align-self: center;
+		z-index: 2;
+	}
+}

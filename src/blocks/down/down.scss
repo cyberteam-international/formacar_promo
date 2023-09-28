@@ -1,0 +1,26 @@
+.down {
+	$self: &;
+	font-family: "OR", sans-serif;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-size: 18px;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	@keyframes moveDown {
+		0% { transform: translateY(-5px); }
+		50% { transform: translateY(5px); }
+		100% { transform: translateY(-5px); }
+	}
+
+
+	&::before {
+		display: block;
+		content: '';
+		width: 21px;
+		height: 52px;
+		background: url('#{$images-path}scroll-down.svg') center / contain no-repeat transparent;
+		margin-right: 20px;
+		animation: moveDown 2s infinite;
+	}
+}
