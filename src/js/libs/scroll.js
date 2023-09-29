@@ -117,6 +117,19 @@ export const scrollClassToggle = (options) => {
 
 	let nodes = [ window, ...props.nodes ];
 
+	const throttle = (fn) => {
+		let timeout = null;
+	
+		return (...args) => {
+			if (timeout === null) {
+				timeout = setTimeout(() => {
+					fn.apply(this, args);
+					timeout = null;
+				}, 250)
+			}
+		}
+	}
+
 	const classToggle = (item) => {
 		const repeat = item.dataset['repeat'] != undefined;
 		const box = item.getBoundingClientRect();
@@ -133,7 +146,7 @@ export const scrollClassToggle = (options) => {
 	
 	document.querySelectorAll(`[data-${props.data}]`).forEach((item) => {
 		nodes.forEach(node => {
-			node.addEventListener('scroll', () => classToggle(item));
+			node.addEventListener('scroll', throttle(() => classToggle(item)));
 		});
 		classToggle(item);
 	});
