@@ -12,7 +12,7 @@
 		padding-top: 110px;
 		padding-bottom: 50px;
 		justify-content: flex-start;
-		overflow: visible;
+		// overflow: visible;
 	}
 	
 	@include media('<=xs') {
@@ -26,7 +26,7 @@
 		background-position: center;
 		background-repeat: no-repeat;
 		background-color: transparent;
-		filter: blur(50px);
+		// filter: blur(50px);
 		position: absolute;
 		opacity: 0.5;
 		height: 100%;
@@ -37,23 +37,23 @@
 	}
 
 	&_one::before {
-		background-image: url('#{$images-path}screen-bg-1.png');
+		background-image: url('#{$images-path}section-bg-1.png');
 	}
 	
 	&_two::before {
-		background-image: url('#{$images-path}screen-bg-2.png');
+		background-image: url('#{$images-path}section-bg-2.png');
 	}
 	
 	&_three::before {
-		background-image: url('#{$images-path}screen-bg-3.png');
+		background-image: url('#{$images-path}section-bg-3.png');
 	}
 	
 	&_four::before {
-		background-image: url('#{$images-path}screen-bg-4.png');
+		background-image: url('#{$images-path}section-bg-4.png');
 	}
 	
 	&_five::before {
-		background-image: url('#{$images-path}screen-bg-5.png');
+		background-image: url('#{$images-path}section-bg-5.png');
 	}
 
 	&__inner {
@@ -84,7 +84,6 @@
 		display: flex;
 		margin-bottom: 20px;
 		align-items: center;
-		overflow: hidden;
 		flex-grow: 1;
 		
 		@include media('<=md') {
