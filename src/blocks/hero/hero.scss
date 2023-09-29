@@ -22,6 +22,16 @@
 	&__emblem {
 		margin-bottom: 30px;
 		
+		&[data-animation] {
+			opacity: 0;
+	
+			&.showed {
+				animation: titleFadeUp 0.7s;
+				animation-fill-mode: forwards;
+				animation-delay: 0.5s;
+			}
+		}
+		
 		img {
 			width: 490px;
 			@include range(490px, 240px, 1920px, 320px, 'width');
@@ -34,6 +44,16 @@
 		margin-bottom: 50px;
 		font-size: 24px;
 		@include range(24px, 14px, 1920px, 320px);
+		
+		&[data-animation] {
+			opacity: 0;
+	
+			&.showed {
+				animation: titleFadeUp 0.7s;
+				animation-fill-mode: forwards;
+				animation-delay: 0.8s;
+			}
+		}
 
 		p {
 			margin-bottom: 30px;
