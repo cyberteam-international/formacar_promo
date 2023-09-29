@@ -45,7 +45,8 @@ $container: 1820px;
 @include font-face("Oswald-Regular", "OR");
 @include font-face("Montserrat-Bold", "MB");
 @include font-face("Montserrat-Regular", "MR");
-// @import "../../node_modules/swiper/swiper";
+@import "../../node_modules/swiper/swiper";
+@import "../../node_modules/swiper/modules/effect-fade";
 
 // Import BEM blocks scss
 @import "../blocks/**/*.scss";
@@ -71,3 +72,8 @@ body, html {
 p { margin-bottom: 10px; }
 strong { font-weight: bold; }
 em { font-style: italic; }
+
+@keyframes fadeIn {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}

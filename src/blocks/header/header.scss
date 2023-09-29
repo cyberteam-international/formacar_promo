@@ -1,19 +1,23 @@
 .header {
 	$self: &;
-	height: 100px;
 	display: flex;
 	align-items: center;
-	margin-bottom: -100px;
-	position: relative;
-	z-index: 1;
-	
-	@include media('<=md') {
-		margin-bottom: 0;
-		height: 90px;
+	position: fixed;
+	z-index: 2;
+	width: 100%;
+	opacity: 0;
+	background-image: linear-gradient(to bottom, #000 10%, rgba(0, 0, 0, 0) 95%);
+	display: none;
+	animation: fadeIn 1.0s forwards;
+
+	&.showed {
+		@include media('<=md') {
+			display: flex;
+		}
 	}
 	
-	@include media('<=sm') {
-		height: 80px;
+	@include media('<=md') {
+		height: 90px;
 	}
 	
 	@include media('<=xs') {
