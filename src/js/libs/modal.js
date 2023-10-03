@@ -210,6 +210,11 @@ export const makeModalFrame = function(props = {}) {
 					this.close();
 				}
 			});
+			
+			document.addEventListener('keydown', e => {
+				if (e.key === "Escape" || e.key === "Esc")
+					this.close();
+			})
 		}
 	}
 

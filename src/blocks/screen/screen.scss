@@ -175,6 +175,10 @@
 			}
 		}
 
+		&[data-modal] {
+			cursor: pointer;
+		}
+
 		img {
 			display: block;
 			box-sizing: border-box;
