@@ -42,6 +42,21 @@
 			width: auto;
 			padding: 0;
 		}
+		
+		#{$self}__close {
+
+			@include media('<=xs') {
+				top: 0;
+				right: -30px;
+				border-radius: 0 !important;
+				background-color: transparent !important;
+				background-image: url('#{$images-path}icons-sprite.svg#icon-close-view-white') !important;
+			}
+
+			@include media('<=xxs') {
+				right: -15px;
+			}
+		}
 
 		#{$self}__content {
 			background-color: rgba(0, 0, 0, 0.5); 
@@ -49,13 +64,13 @@
 			overflow: hidden;
 			
 			@include media('<=xs') {
-				height: 300px;
-				border-radius: 20px;
+				// height: 300px;
+				border-radius: 0;
+				margin: 0 -30px;
 			}
 			
 			@include media('<=xxs') {
-				border-radius: 15px;
-				height: 250px;
+				margin: 0 -15px;
 			}
 
 			img {
