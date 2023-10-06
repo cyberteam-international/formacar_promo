@@ -42,7 +42,7 @@ import { Mousewheel, Pagination, EffectFade } from 'swiper/modules';
 
 	const slideNext = () => swiper.slideNext();
 	
-	enquire.register("screen and (min-width: 960px)", {
+	enquire.register("screen and (min-width: 961px)", {
 		match: function() {
 			swiper = enableSwiper();
 			buttons.forEach((button) => button.addEventListener('click', slideNext));
@@ -52,7 +52,9 @@ import { Mousewheel, Pagination, EffectFade } from 'swiper/modules';
 				swiper.destroy(true, false);
 				[wrapper, ...slides].forEach((item) => item.removeAttribute('style'));
 				buttons.forEach((button) => button.removeEventListener('click', slideNext));
-			} 
+			}
+
+			toggle.init();
 		}
 	});
 

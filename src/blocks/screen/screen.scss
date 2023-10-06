@@ -179,9 +179,11 @@
 			cursor: pointer;
 		}
 
-		img {
+		img, video {
 			display: block;
 			box-sizing: border-box;
+			width: 950px;
+			max-width: 100%;
 			margin-left: auto;
 			border: 3px solid rgba(255, 255, 255, 0.3);
 			border-radius: 8px;

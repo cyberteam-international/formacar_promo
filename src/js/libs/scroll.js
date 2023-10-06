@@ -117,11 +117,6 @@ export const scrollClassToggle = (options) => {
 				class: 'active',
 				...options
 			}
-		
-			this.items = [...document.querySelectorAll(`[data-${this.options.data}]`)].map(item => {
-				item.handler = this.throttle(this.toggle.bind(this, item));
-				return item;
-			});
 
 			this.nodes = [ window, ...this.options.nodes ];
 			this.init();
@@ -159,12 +154,21 @@ export const scrollClassToggle = (options) => {
 		};
 
 		init(flag = true) {
+			if (flag) {
+				this.items = [...document.querySelectorAll(`[data-${this.options.data}]`)].map(item => {
+					item.handler = this.throttle(this.toggle.bind(this, item));
+					return item;
+				});
+			}
+
 			this.items.forEach((item) => {
+				item.classList.remove(`${this.options.class}`);
+
 				this.nodes.forEach(node => {
 					node[(flag ? 'add' : 'remove') + 'EventListener']('scroll', item.handler)
 				});
 				
-				flag ? this.toggle(item) : item.classList.remove(`${this.options.class}`);
+				flag && this.toggle(item);
 			});
 		}
 	}
