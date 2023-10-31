@@ -5,8 +5,7 @@ import { Mousewheel, Pagination, EffectFade } from 'swiper/modules';
 
 (() => {
 	let swiper;
-	const wrapper = document.querySelector('.swiper-wrapper');
-	const slides = Array.from(wrapper.querySelectorAll('.swiper-slide'));
+	const wrapper = document.querySelector('.slider > .swiper-wrapper');
 	const buttons = wrapper.querySelectorAll('a.down');
 	const toggle = scrollClassToggle({ class: 'showed' });
 
@@ -49,8 +48,7 @@ import { Mousewheel, Pagination, EffectFade } from 'swiper/modules';
 		},
 		unmatch: function() {
 			if (swiper !== undefined ) {
-				swiper.destroy(true, false);
-				[wrapper, ...slides].forEach((item) => item.removeAttribute('style'));
+				swiper.destroy(true, true);
 				buttons.forEach((button) => button.removeEventListener('click', slideNext));
 			}
 

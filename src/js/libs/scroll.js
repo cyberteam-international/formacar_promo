@@ -112,6 +112,7 @@ export const scrollClassToggle = (options) => {
 		constructor(options) {
 
 			this.options = {
+				throttle: 250,
 				nodes: [],
 				data: 'animation',
 				class: 'active',
@@ -122,7 +123,7 @@ export const scrollClassToggle = (options) => {
 			this.init();
 		}
 
-		throttle = (fn, delay = 250) => {
+		_throttle = (fn) => {
 			let timeout = null;
 		
 			return (...args) => {
@@ -131,7 +132,7 @@ export const scrollClassToggle = (options) => {
 					timeout = setTimeout(() => {
 						fn.apply(this, args);
 						timeout = null;
-					}, delay)
+					}, this.throttle)
 				}
 			}
 		}
@@ -156,7 +157,7 @@ export const scrollClassToggle = (options) => {
 		init(flag = true) {
 			if (flag) {
 				this.items = [...document.querySelectorAll(`[data-${this.options.data}]`)].map(item => {
-					item.handler = this.throttle(this.toggle.bind(this, item));
+					item.handler = this._throttle(this.toggle.bind(this, item));
 					return item;
 				});
 			}

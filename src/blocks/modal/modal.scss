@@ -42,21 +42,6 @@
 			width: auto;
 			padding: 0;
 		}
-		
-		#{$self}__close {
-
-			@include media('<=xs') {
-				top: 0;
-				right: -30px;
-				border-radius: 0 !important;
-				background-color: transparent !important;
-				background-image: url('#{$images-path}icons-sprite.svg#icon-close-view-white') !important;
-			}
-
-			@include media('<=xxs') {
-				right: -15px;
-			}
-		}
 
 		#{$self}__content {
 			background-color: rgba(0, 0, 0, 0.5); 
@@ -64,7 +49,6 @@
 			overflow: hidden;
 			
 			@include media('<=xs') {
-				// height: 300px;
 				border-radius: 0;
 				margin: 0 -30px;
 			}
@@ -72,42 +56,11 @@
 			@include media('<=xxs') {
 				margin: 0 -15px;
 			}
-
-			img, video {
-				display: block;
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-			}
 		}
 	}
 	
 	&__hidden {
 		display: none;
-	}
-	
-	&__close {
-		position: absolute;
-		top: -75px; right: 0px;
-		border-radius: 50%;
-		cursor: pointer;
-		height: 47px;
-		width: 47px;
-		z-index: 2;
-		background: url('#{$images-path}icons-sprite.svg#icon-close-view-white') center / 20px 20px no-repeat rgba(255, 255, 255, 0.15);
-		transition: background-color 0.3s;
-		
-		@include media('<=xs') {
-			top: -60px;
-			background-size: 16px 16px;
-			height: 38px;
-			width: 38px;
-		}
-
-		&:hover { 
-			background-color: #fff; 
-			background-image: url('#{$images-path}icons-sprite.svg#icon-close-view-dark');
-		}
 	}
 
 	&__body {
@@ -134,14 +87,99 @@
 		@include media('<=xxs') {
 			min-height: 140px;
 		}
-		
-		@include media('<=xxxs') {
-
-		}
 
 		img {
 			display: block;
 			margin: 0 auto;
+		}
+
+		video {
+			display: block;
+			height: 100%;
+			width: 100%;
+			max-width: 100%;
+		}
+
+		&_slideshow {
+
+			img, video {
+				animation: show_fade 0.3s;
+				display: none;
+
+				&.active {
+					display: block;
+				}
+			}
+		}
+	}
+
+	&__prev, &__next {
+		@extend %reset-button;
+		height: 47px;
+		width: 47px;
+		border-radius: 50%;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: 14px 21px;
+		background-color: rgba(255, 255, 255, 0.15);
+		transition: background-color 0.3s, filter 0.3s;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		z-index: 2;
+		
+		@include media('<=xs') {
+			height: 50%;
+		}
+
+		&:hover {
+			@include media('<=xs') {
+				filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.75));
+			}
+		}
+	}
+	
+	&__prev {
+		left: -23px;
+		background-image: url('#{$images-path}icons-sprite.svg#icon-arr-left-view-white');
+		background-position: center left 14px;
+		
+		@include media('<=xs') {
+			background-image: url('#{$images-path}icons-sprite.svg#icon-arr-left-view-white') !important;
+			background-color: transparent !important;
+		}
+		
+		@include media('<=xxs') {
+			left: -15px;
+		}
+
+		&:hover { 
+			background-color: #fff; 
+			background-image: url('#{$images-path}icons-sprite.svg#icon-arr-left-view-dark');
+		}
+	}
+	
+	&__next {
+		right: -23px;
+		background-image: url('#{$images-path}icons-sprite.svg#icon-arr-right-view-white');
+		background-position: center right 14px;
+		
+		@include media('<=xs') {
+			background-image: url('#{$images-path}icons-sprite.svg#icon-arr-right-view-white') !important;
+			background-color: transparent !important;
+		}
+		
+		@include media('<=xxs') {
+			right: -15px;
+		}
+
+		&:hover { 
+			background-color: #fff; 
+			background-image: url('#{$images-path}icons-sprite.svg#icon-arr-right-view-dark');
+
+			@include media('<=xs') {
+
+			}
 		}
 	}
 
@@ -171,6 +209,46 @@
 			height: 47px;
 			background-position: center left 16px;
 			background-size: 18px 20px;
+		}
+		
+		@include media('<=xxs') {
+			display: none;
+		}
+	}
+	
+	&__close {
+		position: absolute;
+		top: -75px; right: 0px;
+		border-radius: 50%;
+		cursor: pointer;
+		height: 47px;
+		width: 47px;
+		z-index: 2;
+		background: url('#{$images-path}icons-sprite.svg#icon-close-view-white') center / 20px 20px no-repeat rgba(255, 255, 255, 0.15);
+		transition: background-color 0.3s, filter 0.3s;
+		
+		@include media('<=xs') {
+			top: 0;
+			right: -30px;
+			background-size: 16px 16px;
+			height: 38px;
+			width: 38px;
+			border-radius: 0 !important;
+			background-color: transparent !important;
+			background-image: url('#{$images-path}icons-sprite.svg#icon-close-view-white') !important;
+		}
+
+		@include media('<=xxs') {
+			right: -15px;
+		}
+
+		&:hover { 
+			background-color: #fff; 
+			background-image: url('#{$images-path}icons-sprite.svg#icon-close-view-dark');
+
+			@include media('<=xs') {
+				filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.75));
+			}
 		}
 	}
 }

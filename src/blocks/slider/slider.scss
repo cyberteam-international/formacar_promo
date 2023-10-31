@@ -11,7 +11,7 @@
 			overflow: visible;
 		}
 	
-		.swiper-wrapper {
+		> .swiper-wrapper {
 			height: 100%;
 
 			@include media('<=md') {

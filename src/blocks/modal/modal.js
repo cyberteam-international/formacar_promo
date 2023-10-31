@@ -24,11 +24,18 @@ import { makeModalFrame } from "../../js/libs/modal";
 	}
 
 	const modal = makeModalFrame({ 
-		select: '.screen__image', 
+		select: '[data-modal]', 
 		scrollLock,
-		open: function() {
-			setPlayButton(this, this.querySelector(`video`));
+		open: function({ slideshow }) {
+			const active = slideshow ? '.active': '';
+			setPlayButton(this, this.querySelector(`video${active}`));
 		},
-
+		move: function() {
+			setPlayButton(this, this.querySelector('video.active'));
+		}
 	});
+
+	modal.body.addEventListener('swiped-left', (e) => modal.move(-1));
+	modal.body.addEventListener('swiped-right', (e) => modal.move());
+
 })();

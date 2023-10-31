@@ -65,6 +65,7 @@
 	"dependencies": {
 		"enquire.js": "^2.1.6",
 		"scroll-lock": "^2.1.5",
+		"swiped-events": "^1.1.7",
 		"swiper": "^10.3.1"
 	}
 }

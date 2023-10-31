@@ -9,7 +9,11 @@
 	flex-flow: column nowrap;
 	justify-content: center;
 	color: #fff;
-	
+		
+	@include media('<=xxs') {
+		min-height: calc(var(--vh, 1vh) * 100);
+	}
+
 	&__inner {
 		display: flex;
 		flex-flow: column nowrap;
