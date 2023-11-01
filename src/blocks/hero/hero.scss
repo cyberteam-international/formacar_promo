@@ -21,6 +21,10 @@
 		justify-content: space-between;
 		flex-grow: 1;
 		max-height: 700px;
+		
+		@include media('<=md') {
+			max-height: 650px;
+		}
 	}
 
 	&__emblem {
@@ -38,7 +42,19 @@
 		
 		img {
 			width: 490px;
-			@include range(490px, 240px, 1920px, 320px, 'width');
+			// @include range(490px, 240px, 1920px, 320px, 'width');
+			
+			@include media('<=xxlg') {
+				width: 340px;
+			}
+			
+			@include media('<=xlg') {
+				width: 270px;
+			}
+			
+			@include media('<=xxs') {
+				width: 240px;
+			}
 		}
 	}
 
@@ -47,8 +63,20 @@
 		text-align: center;
 		margin-bottom: 50px;
 		font-size: 24px;
-		@include range(24px, 14px, 1920px, 320px);
+		// @include range(24px, 14px, 1920px, 320px);
 		
+		@include media('<=xxlg') {
+			font-size: 20px;
+		}
+		
+		@include media('<=xlg') {
+			font-size: 16px;
+		}
+		
+		@include media('<=xxs') {
+			font-size: 14px;
+		}
+	
 		&[data-animation] {
 			opacity: 0;
 	

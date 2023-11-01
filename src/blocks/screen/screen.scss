@@ -99,9 +99,15 @@
 	}
 
 	&__side {
-		padding-right: 50px;
+		padding-left: 22px;
+		padding-right: 65px;
 		max-width: 680px;
 		margin-right: auto;
+		
+		@include media('<=lg') {
+			padding-left: 18px;
+			padding-right: 50px;
+		}
 		
 		@include media('<=md') {
 			max-width: none;
@@ -115,10 +121,18 @@
 		font-size: 64px;
 		text-transform: uppercase;
 		margin-bottom: 50px;
-		@include range(64px, 36px, 1920px, 320px);
 		
-		@include media('<=md') {
+		@include media('<=xxlg') {
 			margin-bottom: 30px;
+			font-size: 48px;
+		}
+		
+		@include media('<=xlg') {
+			font-size: 40px;
+		}
+		
+		@include media('<=xxs') {
+			font-size: 36px;
 		}
 		
 		&[data-animation] {
@@ -136,13 +150,19 @@
 			font-family: "MR", sans-serif;
 			text-transform: none;
 			font-size: 32px;
-			@include range(32px, 24px, 1920px, 320px);
+		
+			@include media('<=xxlg') {
+				font-size: 24px;
+			}
 		}
 	}
 
 	&__text {
 		font-size: 16px;
-		@include range(16px, 14px, 1920px, 320px);
+		
+		@include media('<=xxlg') {
+			font-size: 14px;
+		}
 		
 		&[data-animation] {
 			opacity: 0;
@@ -166,6 +186,19 @@
 	&__images {
 		width: 54%;
 		flex-shrink: 0;
+		margin: 0 0 0 auto;
+		
+		@include media('<=xxlg') {
+			width: 49%;
+		}
+		
+		@include media('<=xlg') {
+			width: 44%;
+		}
+		
+		@include media('<=lg') {
+			width: 50%;
+		}
 
 		@include media('<=md') {
 			width: auto;
@@ -190,7 +223,7 @@
 		img, video {
 			display: block;
 			box-sizing: border-box;
-			width: 950px;
+			width: 900px;
 			max-width: 100%;
 			margin-left: auto;
 			border: 3px solid rgba(255, 255, 255, 0.3);
@@ -203,7 +236,7 @@
 	}
 
 	&__navigation {
-		padding-top: 30px;
+		padding-top: 10px;
 	
 		@include media('<=xxs') {
 			padding-top: 20px;

@@ -6,109 +6,71 @@
 
 	&__button {
 		@extend %reset-button;
-		width: 45px;
-		height: 45px;
-		opacity: 0.3;
+		width: 40px;
+		height: 40px;
 		display: flex;
-		border-radius: 50%;
-		align-items: center;
-		justify-content: center;
-		border: 2px solid #fff;
-		transition: all 0.2s;
 		flex-shrink: 0;
 		cursor: pointer;
+		background-color: transparent;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: 50% 50%;
+		transition: filter 0.4s;
 		
 		@include media('<=lg') {
-			width: 40px;
-			height: 40px;
-		}
 
-		@include media('<=md') {
-			display: none;
 		}
-
-		&::before {
-			content: '';
-			width: 0; 
-			height: 0;
-			border-color: transparent;
-			border-style: solid;
-			border-top-width: 7px;
-			border-bottom-width: 7px;
-			transition: border-color 0.3s;
-		}			
 
 		&[disabled] {
-			opacity: 0.1;
+			opacity: 0.3;
 			cursor: auto;
 			pointer-events: none;
 		}
 
 		&:hover {
-			opacity: 1;
-			border-color:#387DFB;
+			filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.75));
 		}
 		
 		&_prev {
-			&:hover::before {
-				border-right-color: #387DFB;
-			}
-
-			&::before {
-				border-right: 9px solid #fff;
-				margin-right: 5px;
-			}			
+			background-image: url('#{$images-path}icons-sprite.svg#icon-arr-left-view-white');
 		}
-	
+		
 		&_next {
-			&:hover::before {
-				border-left-color: #387DFB;
-			}
-			
-			&::before {
-				border-left: 9px solid #fff;
-				margin-left: 5px;
-			}			
+			background-image: url('#{$images-path}icons-sprite.svg#icon-arr-right-view-white');
 		}
 	}
 
 	&__dots {
 		width: auto !important;
-		padding: 0 14px;
+		padding: 0 8px;
 		display: flex;
 	}
 
 	&__dot {
 		display: block;
 		box-sizing: border-box;
-		height: 12px;
-		width: 12px;
-		opacity: 0.3;
+		height: 9px;
+		width: 9px;
 		border-radius: 50%;
 		transition: all 0.2s;
-		background-color: #fff;
+		border: 1px solid #fff;
 		cursor: pointer;
-		margin: 0 6px;
+		margin: 0 5px;
 
-		@include media('<=xs') {
-			margin: 0 4px;
+		@include media('<=xxlg') {
+			margin: 0 3px;
 			height: 8px;
 			width: 8px;
 		}
 
-		&:hover {
-			opacity: 1;
+		@include media('<=xs') {
+			margin: 0 4px;
 		}
 
 		&.active {
-			width: 40px;
-			background: linear-gradient(270deg, #387DFB 0%, #00F2FB 100%);
+			width: 20px;
+			background-color: #fff;
 			border-radius: 20px;
-			opacity: 1;
-
-			@include media('<=xs') {
-				width: 24px;
-			}
 		}
 	}
 }
