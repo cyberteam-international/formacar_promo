@@ -11,7 +11,8 @@
 	color: #fff;
 		
 	@include media('<=xxs') {
-		min-height: calc(var(--vh, 1vh) * 100);
+		// min-height: calc(var(--vh, 1vh) * 100);
+		min-height: 100svh;
 	}
 
 	&__inner {
