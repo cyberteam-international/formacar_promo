@@ -6,7 +6,7 @@
 	z-index: 9999;
 	left: 0;
 	top: 0;
-	width: 100vw;
+	width: 100%;
 	height: 100vh;
 	height: calc(var(--vh, 1vh) * 100);
 	background-color: rgba(0, 0, 0, 0.8);
@@ -25,12 +25,6 @@
 
 	&[style*="display: block"] {
 		display: flex !important;
-	}
-
-	&_error {
-		#{$self}__content {
-			&::after { content: 'Задайте id целевого блока в атрибуте data-modal'; }
-		}
 	}
 
 	&_self {
@@ -57,6 +51,70 @@
 				margin: 0 -15px;
 			}
 		}
+
+		#{$self}__close {
+			top: -75px; 
+			right: -30px;
+			border-radius: 50%;
+			height: 48px;
+			width: 48px;
+			transition: background-color 0.3s, filter 0.3s;
+			background: url('#{$images-path}icons-sprite.svg#icon-close-view-white') center / 20px 20px no-repeat rgba(255, 255, 255, 0.15);
+
+			@include media('<=md') {
+				right: 0;
+			}
+			
+			@include media('<=xs') {
+				top: 0;
+				right: -30px;
+				border-radius: 0 !important;
+				background-color: transparent !important;
+				background-image: url('#{$images-path}icons-sprite.svg#icon-close-view-white') !important;
+			}
+				
+			@include media('<=xxs') {
+				right: -15px;
+			}
+				
+			@include media('<=xxxs') {
+				background-size: 16px 16px;
+			}
+
+			&:hover { 
+				background-color: #fff; 
+				background-image: url('#{$images-path}icons-sprite.svg#icon-close-view-dark');
+	
+				@include media('<=xs') {
+					filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.75));
+				}
+			}
+		}
+	}
+
+	&_feedback {
+		#{$self}__body {
+			padding: 100px;
+			background-color: #151515;
+			max-width: 560px;
+
+			@include media('<=xs') {
+				padding: 68px 60px;
+			}
+
+			@include media('<=xxs') {
+				padding: 68px 30px;
+			}
+		}
+
+		#{$self}__close {
+			transition: transform 0.3s, filter 0.3s;
+
+			&:hover {
+				transform: scale(1.25);
+				filter: brightness(0) invert(1)
+			}
+		}
 	}
 	
 	&__hidden {
@@ -68,7 +126,7 @@
 		box-sizing: border-box;
 		position: relative;
 		background-color: #e2e2e2;
-		border-radius: 80px;
+		border-radius: 5px;
 		margin: auto;
 		padding: 40px;
 		width: 100%;
@@ -76,7 +134,6 @@
 		box-shadow: 0px 1px 10px 4px rgba(0, 0, 0, 0.07);
 		
 		@include media('<=xxs') {
-			border-radius: 40px;
 			padding: 20px;
 		}
 	}
@@ -218,37 +275,12 @@
 	
 	&__close {
 		position: absolute;
-		top: -75px; right: 0px;
-		border-radius: 50%;
+		top: 20px;
+		right: 20px;
+		width: 30px;
+		height: 30px;
 		cursor: pointer;
-		height: 47px;
-		width: 47px;
 		z-index: 2;
-		background: url('#{$images-path}icons-sprite.svg#icon-close-view-white') center / 20px 20px no-repeat rgba(255, 255, 255, 0.15);
-		transition: background-color 0.3s, filter 0.3s;
-		
-		@include media('<=xs') {
-			top: 0;
-			right: -30px;
-			background-size: 16px 16px;
-			height: 38px;
-			width: 38px;
-			border-radius: 0 !important;
-			background-color: transparent !important;
-			background-image: url('#{$images-path}icons-sprite.svg#icon-close-view-white') !important;
-		}
-
-		@include media('<=xxs') {
-			right: -15px;
-		}
-
-		&:hover { 
-			background-color: #fff; 
-			background-image: url('#{$images-path}icons-sprite.svg#icon-close-view-dark');
-
-			@include media('<=xs') {
-				filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.75));
-			}
-		}
+		background: url('#{$images-path}icons-sprite.svg#icon-close-view-dark') center / 16px 16px no-repeat transparent;
 	}
 }

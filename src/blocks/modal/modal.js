@@ -1,5 +1,6 @@
 import scrollLock from 'scroll-lock';
 import { makeModalFrame } from "../../js/libs/modal";
+import { selectTweaker } from "../../js/libs/selectTweaker";
 
 (() => {
 	const setPlayButton = (content, video) => {
@@ -29,6 +30,14 @@ import { makeModalFrame } from "../../js/libs/modal";
 		open: function({ slideshow }) {
 			const active = slideshow ? '.active': '';
 			setPlayButton(this, this.querySelector(`video${active}`));
+			selectTweaker(this.querySelectorAll('.form__field_select'));
+
+			this.querySelectorAll('.form__field').forEach(field => {
+				field.addEventListener('click', () => field.classList.remove('form__field_error'));
+				field.querySelector('textarea')?.addEventListener('input', function() {
+					this.style.height = Math.max(this.scrollHeight, this.offsetHeight) + 'px';
+				}); 
+			});
 		},
 		move: function() {
 			setPlayButton(this, this.querySelector('video.active'));

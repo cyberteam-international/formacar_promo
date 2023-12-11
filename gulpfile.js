@@ -134,8 +134,8 @@ function icons() {
 	.pipe($.svgSymbolView({
 		name: 'icons-sprite',
 		monochrome: {
-			blue: '#638bf5',
-			dark: '#46557b',
+			red: '#eb5757',
+			dark: '#5a5a5a',
 			white: '#ffffff'
 		}
 	}))

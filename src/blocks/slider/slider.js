@@ -1,7 +1,7 @@
 import { scrollClassToggle } from "../../js/libs/scroll";
 import enquire from 'enquire.js';
 import Swiper from 'swiper';
-import { Mousewheel, Pagination, EffectFade } from 'swiper/modules';
+import { Mousewheel, Pagination, EffectFade, Keyboard } from 'swiper/modules';
 
 (() => {
 	let swiper;
@@ -19,13 +19,17 @@ import { Mousewheel, Pagination, EffectFade } from 'swiper/modules';
 
 	const enableSwiper = () => {
 		return new Swiper(".slider.swiper", {
-			modules: [Mousewheel, Pagination, EffectFade],
+			modules: [Mousewheel, Pagination, EffectFade, Keyboard],
 			slidesPerView: 1,
 			speed: 800,
 			direction: 'vertical',
 			mousewheel: true,
 			effect: "fade",
 			fadeEffect: { crossFade: true },
+			keyboard: {
+				enabled: true,
+				onlyInViewport: true
+			},
 			pagination: {
 				el: '.slider__dots',
 				clickable: true,

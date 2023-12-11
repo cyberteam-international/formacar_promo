@@ -2,7 +2,7 @@ import Swiper from 'swiper';
 import { Navigation, Pagination, EffectFade } from 'swiper/modules';
 
 (() => {
-	document.querySelectorAll('.screen__images')?.forEach((item, i) => {
+	document.querySelectorAll('.screen__side.swiper')?.forEach((item, i) => {
 		new Swiper(item, {
 			modules: [Navigation, Pagination, EffectFade],
 			spaceBetween: 0,
