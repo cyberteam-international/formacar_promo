@@ -8,6 +8,8 @@ import { Mousewheel, Pagination, EffectFade, Keyboard } from 'swiper/modules';
 	const wrapper = document.querySelector('.slider > .swiper-wrapper');
 	const buttons = wrapper.querySelectorAll('a.down');
 	const toggle = scrollClassToggle({ class: 'showed' });
+	const heroButton = document.querySelector('a.hero__button[href="#last"]');
+	const slidesCount = wrapper.querySelectorAll('.slider__slide').length - 1;
 
 	const classToggle = (sw) => {
 		sw.slides.forEach((slide, index) => {
@@ -49,6 +51,7 @@ import { Mousewheel, Pagination, EffectFade, Keyboard } from 'swiper/modules';
 		match: function() {
 			swiper = enableSwiper();
 			buttons.forEach((button) => button.addEventListener('click', slideNext));
+			heroButton.addEventListener('click', () => swiper.slideTo(slidesCount, 800));
 		},
 		unmatch: function() {
 			if (swiper !== undefined ) {
