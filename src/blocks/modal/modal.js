@@ -29,6 +29,8 @@ import { selectTweaker } from "../../js/libs/selectTweaker";
 		scrollLock,
 		open: function({ slideshow }) {
 			const active = slideshow ? '.active': '';
+			const form = this.querySelector('form.form');
+
 			setPlayButton(this, this.querySelector(`video${active}`));
 			selectTweaker(this.querySelectorAll('.form__field_select'));
 
@@ -38,6 +40,14 @@ import { selectTweaker } from "../../js/libs/selectTweaker";
 					this.style.height = Math.max(this.scrollHeight, this.offsetHeight) + 'px';
 				}); 
 			});
+
+			
+			form.addEventListener('submit', (e) => {
+				e.preventDefault();
+				
+				// console.log('hello');
+			});
+			
 		},
 		move: function() {
 			setPlayButton(this, this.querySelector('video.active'));

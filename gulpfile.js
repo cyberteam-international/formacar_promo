@@ -150,13 +150,13 @@ function shapes() {
 
 function fonts() {
 	return gulp.src(pth.src.fnts)
-		.pipe($.newer(pth.pbl.fnts))
+		/* .pipe($.newer(pth.pbl.fnts))
 		.pipe($.fonter({
 			formats: ['woff', 'ttf', 'eot'],
 			compound2simple: true
 		}))		
 		.pipe(gulp.dest(pth.pbl.fnts))
-		.pipe($.ttf2woff2())
+		.pipe($.ttf2woff2()) */
 		.pipe(gulp.dest(pth.pbl.fnts))
 		.pipe($.if(isSync, $.browserSync.stream()));
 }
