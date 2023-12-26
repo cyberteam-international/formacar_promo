@@ -203,8 +203,35 @@
 		}
 	}
 
-	&__button {
+	&__buttons {
 		margin-top: 50px;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 20px;
+		
+		@include media('<=xxs') {
+			gap: 16px;
+		}
+	}
+
+	&__button {
+		
+		&_load {
+			@include media('<=xxs') {
+				flex-grow: 1;
+				max-width: calc(50% - 10px);
+			}
+		}
+		
+		&_get {
+			flex-grow: 1;
+			max-width: 240px;
+
+			@include media('<=xxs') {
+				max-width: none;
+				width: 100%;
+			}
+		}
 	}		
 
 	&__side {
